@@ -1,0 +1,246 @@
+{
+	"info": {
+		"_postman_id": "331ccc06-b577-4291-b1eb-82c651a6f0ba",
+		"name": "TaskFlow API",
+		"description": "Postman collection for TaskFlow Task Management Application",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30951396"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Register User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Test User\",\n  \"email\": \"test@example.com\",\n  \"password\": \"Test@123\"\n}\n"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/auth/signup",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"test@example.com\",\n  \"password\": \"Test@123\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/auth/login",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Logged-in User (Profile)",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true,
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ODMyNjhmY2E2Y2U5ZjBhYjQwZjM2MyIsImlhdCI6MTc3MDIwMjgxOSwiZXhwIjoxNzcwODA3NjE5fQ.5FXEMXz-KDvRSZwJb3QJxxUNCyCeZX2_7ZSuh_b-YNU"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/me",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"me"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Tasks",
+			"item": [
+				{
+					"name": "Get All Tasks",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ODMyNjhmY2E2Y2U5ZjBhYjQwZjM2MyIsImlhdCI6MTc3MDIwMjgxOSwiZXhwIjoxNzcwODA3NjE5fQ.5FXEMXz-KDvRSZwJb3QJxxUNCyCeZX2_7ZSuh_b-YNU"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/tasks",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"tasks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Task",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ODMyNjhmY2E2Y2U5ZjBhYjQwZjM2MyIsImlhdCI6MTc3MDIwMjgxOSwiZXhwIjoxNzcwODA3NjE5fQ.5FXEMXz-KDvRSZwJb3QJxxUNCyCeZX2_7ZSuh_b-YNU"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"Sample Task\",\n  \"description\": \"This is a test task\",\n  \"status\": \"Pending\",\n  \"priority\": \"Medium\",\n  \"dueDate\": \"2026-02-05\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/tasks",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"tasks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Task",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ODMyNjhmY2E2Y2U5ZjBhYjQwZjM2MyIsImlhdCI6MTc3MDIwMjgxOSwiZXhwIjoxNzcwODA3NjE5fQ.5FXEMXz-KDvRSZwJb3QJxxUNCyCeZX2_7ZSuh_b-YNU"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"Updated Task\",\n  \"status\": \"Completed\",\n  \"priority\": \"High\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/tasks/69832934ca6ce9f0ab40f36a",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"tasks",
+								"69832934ca6ce9f0ab40f36a"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Task",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ODMyNjhmY2E2Y2U5ZjBhYjQwZjM2MyIsImlhdCI6MTc3MDIwMjgxOSwiZXhwIjoxNzcwODA3NjE5fQ.5FXEMXz-KDvRSZwJb3QJxxUNCyCeZX2_7ZSuh_b-YNU"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/tasks/69832934ca6ce9f0ab40f36a",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"tasks",
+								"69832934ca6ce9f0ab40f36a"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Backend Connection checkup",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						""
+					]
+				},
+				"description": "to test backend connection"
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:5000/api/v1"
+		},
+		{
+			"key": "token",
+			"value": ""
+		}
+	]
+}
