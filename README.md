@@ -158,6 +158,10 @@ Authorization Header
     B.Tech CSE – Full Stack Developer
     
     GitHub: https://github.com/Pavani-Choppa/
+    
+🔧 How would you scale this for production?
+
+    To scale TaskFlow for production, I would deploy the frontend on Vercel or Netlify and the backend on AWS or Render with HTTPS enabled. Environment variables would be managed using a secure secrets manager instead of .env files. I would enforce strict CORS policies to allow only trusted frontend origins. MongoDB indexes would be added on frequently queried fields like userId and status to improve performance. Redis would be introduced for caching user sessions and frequently accessed task data. Rate limiting and request validation would be added to protect APIs. Finally, centralized logging and monitoring would be set up to track errors and performance in real time.
 
 ⭐ If you like this project, consider giving it a star!
 
